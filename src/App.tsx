@@ -5,20 +5,28 @@ function App() {
   const [employees,setEmploees] = useState([])
 
   function getResEmployees() {
-    fetch('https://jsonplaceholder.typicode.com/users/1')
+    fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(data => setEmploees(data))
   }
 
   useEffect(() => {
-    getResEmployees()
+    console.log('привет');
+    
+    if (employees.length === 0){
+      getResEmployees()
+    }   
+    return () => {
+      console.log('пока');
+      
+    }
   },[])
 
   return (
-    <div> {employees.length > 0 && employees.map((element, index) => {
+    <div> {employees.length > 0 && employees.map((element:any, index) => {
       return(
           <div key={index}>
-              {element}
+              {element.name}
           </div>
           
       )
