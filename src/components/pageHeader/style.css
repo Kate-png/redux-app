@@ -1,0 +1,15 @@
+.headerLink{
+    text-decoration: none;
+    color: black;
+}
+
+.headerLink:hover {
+    color: #0033ff;
+}
+
+.headerName {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+

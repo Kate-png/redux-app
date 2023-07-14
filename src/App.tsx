@@ -1,38 +1,22 @@
-import React, { useEffect, useState } from 'react';
 import './App.css';
+import {Employees} from "./views/EmployeesList/Employees";
+import {Employee} from "./views/Employee/Employee";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {PageHeader} from "./components/pageHeader/PageHeader";
+import React from "react";
 
 function App() {
-  const [employees,setEmploees] = useState([])
-
-  function getResEmployees() {
-    fetch('https://jsonplaceholder.typicode.com/users')
-    .then(response => response.json())
-    .then(data => setEmploees(data))
-  }
-
-  useEffect(() => {
-    console.log('привет');
-    
-    if (employees.length === 0){
-      getResEmployees()
-    }   
-    return () => {
-      console.log('пока');
-      
-    }
-  },[])
-
-  return (
-    <div> {employees.length > 0 && employees.map((element:any, index) => {
-      return(
-          <div key={index}>
-              {element.name}
-          </div>
-          
-      )
-  })}
-</div>
-  );
+    return (
+        <div className="main">
+            <PageHeader/>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Employees/>}/>
+                    <Route path="employee/:id" element={<Employee/>}/>
+                </Routes>
+            </BrowserRouter>
+        </div>
+    )
 }
 
 export default App;

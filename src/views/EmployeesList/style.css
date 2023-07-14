@@ -1,0 +1,8 @@
+.employeeList {
+    display: flex;
+    flex-direction: column;
+}
+
+.employeeComponent {
+    padding: 20px;
+}

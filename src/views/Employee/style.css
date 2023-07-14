@@ -1,0 +1,4 @@
+.employeeItem {
+    display: flex;
+    flex-direction: column;
+}
